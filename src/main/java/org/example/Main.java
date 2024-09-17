@@ -13,8 +13,10 @@ public class Main {
         List<String> m =m1(500);
         System.out.println(m);
 
+
     }
     public static List<String> m1(int n){
+        if (n<0){return null;}
         List<String> m1=new ArrayList<>();
         for (int i=1; i<=n;i++){
             if (i % 5 == 0){
