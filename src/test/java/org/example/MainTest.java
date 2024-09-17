@@ -26,7 +26,7 @@ class MainTest {
 
     @Test
     void Nm1() {
-        int n = -2;
+        int n = -4;
         List<String> m1 = Main.m1(n);
         assertNull(m1);
     }
