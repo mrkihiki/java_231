@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class MainTest {
 
@@ -29,5 +30,12 @@ class MainTest {
         int n = -4;
         List<String> m1 = Main.m1(n);
         assertNull(m1);
+    }
+
+    @Test
+    void m2() {
+        String n="llatsni ekam";
+        String m2=Main.m2("make install");
+        assertEquals(n,m2);
     }
 }
