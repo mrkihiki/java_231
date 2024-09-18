@@ -12,9 +12,11 @@ public class Main {
         //System.out.printf("Hello and welcome!");
         //List<String> m =m1(500);
 //        System.out.println(m);
-        System.out.println(m2("make install"));
+//        System.out.println(m2("make install"));
 //        String n="make install";
 //        System.out.println(n.length());
+//        List<String> m =m3(1,3,-4);
+//        System.out.println(m);
 
     }
     public static List<String> m1(int n){
@@ -40,5 +42,18 @@ public class Main {
             otv=otv + n.charAt(i);
         }
         return otv;
+    }
+    public static List<String> m3(int a,int b,int c){
+        List<String> m1=new ArrayList<>();
+        float d=b*b-4*a*c;
+        if(d<0){
+            m1.add("нет вещественных корней");
+        } else if (d>0) {
+            m1.add(String.valueOf((-b-Math.sqrt(d))/(2*a)));
+            m1.add(String.valueOf((-b+Math.sqrt(d))/(2*a)));
+        }else {
+            m1.add(String.valueOf((b/(2*a))*-1));
+        }
+        return  m1;
     }
 }

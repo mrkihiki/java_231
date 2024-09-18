@@ -38,4 +38,18 @@ class MainTest {
         String m2=Main.m2("make install");
         assertEquals(n,m2);
     }
+
+    @Test
+    void m3() {
+        String n="нет вещественных корней";
+        List<String> m3 =Main.m3(1,-5,9);
+        assertEquals(n,m3.getFirst());
+        m3=Main.m3(1,3,-4);
+        List<String> nn=new ArrayList<>();
+        nn.add("-4.0");
+        nn.add("1.0");
+        assertEquals(nn,m3);
+        m3=Main.m3(1,-4,4);
+        assertEquals("2",m3.getFirst());
+    }
 }
