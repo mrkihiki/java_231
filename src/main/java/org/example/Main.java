@@ -12,13 +12,13 @@ public class Main {
         //System.out.printf("Hello and welcome!");
         //List<String> m =m1(500);
 //        System.out.println(m);
-//        System.out.println(m2("make install"));
+        System.out.println(m2("make install"));
 //        String n="make install";
 //        System.out.println(n.length());
 //        List<String> m =m3(1,3,-4);
 //        System.out.println(m);
 //          System.out.println(m4());
-          System.out.println(m5("атака заката"));
+          System.out.println(m5("Do geese see God"));
 
     }
     public static List<String> m1(int n){
@@ -67,11 +67,9 @@ public class Main {
         }
         return otv;
     }
-    public static String m5(String n){
-        String nn=m2(n);
-        System.out.println(nn);
-        System.out.println(n);
-        System.out.println(n.equals(nn));
-        return null;
+    public static boolean m5(String n){
+        String nn=m2(n).replaceAll(" ","");
+        n=n.replaceAll(" ","");
+        return n.equalsIgnoreCase(nn);
     }
 }
