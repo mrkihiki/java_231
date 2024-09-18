@@ -57,4 +57,10 @@ class MainTest {
     void m4() {
         assertEquals("0.61011225",String.valueOf(Main.m4()));
     }
+
+    @Test
+    void m5() {
+        assertTrue(Main.m5("Do geese see God"));
+        assertFalse(Main.m5("Do geese see Dog"));
+    }
 }
