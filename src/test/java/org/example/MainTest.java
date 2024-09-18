@@ -52,4 +52,9 @@ class MainTest {
         m3=Main.m3(1,-4,4);
         assertEquals("2",m3.getFirst());
     }
+
+    @Test
+    void m4() {
+        assertEquals("0.61011225",String.valueOf(Main.m4()));
+    }
 }

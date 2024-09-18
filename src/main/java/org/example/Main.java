@@ -17,6 +17,8 @@ public class Main {
 //        System.out.println(n.length());
 //        List<String> m =m3(1,3,-4);
 //        System.out.println(m);
+//          System.out.println(m4());
+          System.out.println(m5("атака заката"));
 
     }
     public static List<String> m1(int n){
@@ -55,5 +57,21 @@ public class Main {
             m1.add(String.valueOf((b/(2*a))*-1));
         }
         return  m1;
+    }
+    public static float m4(){
+        float otv=0;
+        float n=1;
+        for (float i=2;n>=Math.pow(10,-6);i++){
+            n=1/(i*i+i-2);
+            otv=otv+n;
+        }
+        return otv;
+    }
+    public static String m5(String n){
+        String nn=m2(n);
+        System.out.println(nn);
+        System.out.println(n);
+        System.out.println(n.equals(nn));
+        return null;
     }
 }
