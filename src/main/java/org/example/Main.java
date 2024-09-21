@@ -2,6 +2,7 @@ package org.example;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
@@ -10,66 +11,76 @@ public class Main {
         //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
         // to see how IntelliJ IDEA suggests fixing it.
         //System.out.printf("Hello and welcome!");
-        //List<String> m =m1(500);
-//        System.out.println(m);
-        System.out.println(m2("make install"));
-//        String n="make install";
-//        System.out.println(n.length());
-//        List<String> m =m3(1,3,-4);
-//        System.out.println(m);
-//          System.out.println(m4());
-          System.out.println(m5("Do geese see God"));
+        Scanner in= new Scanner(System.in);
+        System.out.println("Task 1");
+        List<String> m =sequence(500);
+        System.out.println(m);
+        System.out.println("Task 2");
+        System.out.println(reverse("make install"));
+        System.out.println("Task 3");
+        System.out.print("a=");
+        int a= in.nextInt();
+        System.out.print("b=");
+        int b= in.nextInt();
+        System.out.print("c=");
+        int c= in.nextInt();
+        List<String> unknowns =equation(a,b,c);
+        System.out.println(unknowns);
+        System.out.println("Task 4");
+        System.out.println(sum());
+        System.out.println("Task 5");
+        System.out.println(palindrome("Do geese see God"));
 
     }
-    public static List<String> m1(int n){
+    public static List<String> sequence(int n){
         if (n<0){return null;}
-        List<String> m1=new ArrayList<>();
+        List<String> sequence =new ArrayList<>();
         for (int i=1; i<=n;i++){
             if (i % 5 == 0){
-                m1.add("fizz");
+                sequence.add("fizz");
                 if(i % 7 == 0){
-                    m1.set(i-1,"fizzbuzz");
+                    sequence.set(i-1,"fizzbuzz");
                 }
             } else if (i % 7 == 0) {
-                m1.add("buzz");
+                sequence.add("buzz");
             }else {
-                m1.add(String.valueOf(i));
+                sequence.add(String.valueOf(i));
             }
         }
-        return m1;
+        return sequence;
     }
-    public static String m2(String n){
-        String otv = "";
+    public static String reverse(String n){
+        String reverse = "";
         for (int i = n.length()-1;i>=0; i--){
-            otv=otv + n.charAt(i);
+            reverse = reverse + n.charAt(i);
         }
-        return otv;
+        return reverse;
     }
-    public static List<String> m3(int a,int b,int c){
-        List<String> m1=new ArrayList<>();
+    public static List<String> equation(int a,int b,int c){
+        List<String> unknowns =new ArrayList<>();
         float d=b*b-4*a*c;
         if(d<0){
-            m1.add("нет вещественных корней");
+            unknowns.add("There are no real roots");
         } else if (d>0) {
-            m1.add(String.valueOf((-b-Math.sqrt(d))/(2*a)));
-            m1.add(String.valueOf((-b+Math.sqrt(d))/(2*a)));
+            unknowns.add(String.valueOf((-b-Math.sqrt(d))/(2*a)));
+            unknowns.add(String.valueOf((-b+Math.sqrt(d))/(2*a)));
         }else {
-            m1.add(String.valueOf((b/(2*a))*-1));
+            unknowns.add(String.valueOf((b/(2*a))*-1));
         }
-        return  m1;
+        return unknowns;
     }
-    public static float m4(){
-        float otv=0;
+    public static float sum (){
+        float sum=0;
         float n=1;
         for (float i=2;n>=Math.pow(10,-6);i++){
             n=1/(i*i+i-2);
-            otv=otv+n;
+            sum = sum +n;
         }
-        return otv;
+        return sum;
     }
-    public static boolean m5(String n){
-        String nn=m2(n).replaceAll(" ","");
-        n=n.replaceAll(" ","");
-        return n.equalsIgnoreCase(nn);
+    public static boolean palindrome(String str){
+        String strReverse=reverse(str).replaceAll(" ","");
+        str=str.replaceAll(" ","");
+        return str.equalsIgnoreCase(strReverse);
     }
 }

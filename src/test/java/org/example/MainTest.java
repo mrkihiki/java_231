@@ -11,56 +11,58 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 class MainTest {
 
     @Test
-    void m1() {
+    void sequence() {
         int n = 7;
-        List<String> m1=new ArrayList<>();
-        m1.add("1");
-        m1.add("2");
-        m1.add("3");
-        m1.add("4");
-        m1.add("fizz");
-        m1.add("6");
-        m1.add("buzz");
-        List<String> otv = Main.m1(n);
-        assertEquals(m1,otv);
+        List<String> expected =new ArrayList<>();
+        String[] q={"1", "2", "3", "4", "fizz", "6", "buzz", "8", "9", "fizz", "11", "12", "13", "buzz", "fizz", "16", "17", "18", "19", "fizz", "buzz", "22", "23", "24", "fizz", "26", "27", "buzz", "29", "fizz", "31", "32", "33", "34", "fizzbuzz", "36"};
+        expected.add("1");
+        expected.add("2");
+        expected.add("3");
+        expected.add("4");
+        expected.add("fizz");
+        expected.add("6");
+        expected.add("buzz");
+        List<String> actual = Main.sequence(n);
+        assertEquals(expected, actual);
+        assertEquals(List.of(q), Main.sequence(36));
     }
 
     @Test
-    void Nm1() {
+    void sequenceNegativeSize() {
         int n = -4;
-        List<String> m1 = Main.m1(n);
-        assertNull(m1);
+        List<String> actual = Main.sequence(n);
+        assertNull(actual);
     }
 
     @Test
-    void m2() {
-        String n="llatsni ekam";
-        String m2=Main.m2("make install");
-        assertEquals(n,m2);
+    void reverse() {
+        String expected="llatsni ekam";
+        String actual =Main.reverse("make install");
+        assertEquals(expected, actual);
     }
 
     @Test
-    void m3() {
-        String n="нет вещественных корней";
-        List<String> m3 =Main.m3(1,-5,9);
-        assertEquals(n,m3.getFirst());
-        m3=Main.m3(1,3,-4);
-        List<String> nn=new ArrayList<>();
-        nn.add("-4.0");
-        nn.add("1.0");
-        assertEquals(nn,m3);
-        m3=Main.m3(1,-4,4);
-        assertEquals("2",m3.getFirst());
+    void equation() {
+        String n="There are no real roots";
+        List<String> unknowns =Main.equation(1,-5,9);
+        assertEquals(n, unknowns.getFirst());
+        unknowns =Main.equation(1,3,-4);
+        List<String> expected =new ArrayList<>();
+        expected.add("-4.0");
+        expected.add("1.0");
+        assertEquals(expected, unknowns);
+        unknowns =Main.equation(1,-4,4);
+        assertEquals("2", unknowns.getFirst());
     }
 
     @Test
-    void m4() {
-        assertEquals("0.61011225",String.valueOf(Main.m4()));
+    void sum() {
+        assertEquals("0.61011225",String.valueOf(Main.sum()));
     }
 
     @Test
-    void m5() {
-        assertTrue(Main.m5("Do geese see Вod"));
-        assertFalse(Main.m5("Do geese see Dog"));
+    void palindrome() {
+        assertTrue(Main.palindrome("Do geese see God"));
+        assertFalse(Main.palindrome("Do geese see Dog"));
     }
 }
