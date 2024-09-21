@@ -60,7 +60,7 @@ class MainTest {
 
     @Test
     void m5() {
-        assertTrue(Main.m5("Do geese see God"));
+        assertTrue(Main.m5("Do geese see Вod"));
         assertFalse(Main.m5("Do geese see Dog"));
     }
 }
