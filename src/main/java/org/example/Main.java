@@ -19,13 +19,14 @@ public class Main {
         System.out.println(reverse("make install"));
         System.out.println("Task 3");
         System.out.print("a=");
-        int a= in.nextInt();
+        float a= in.nextFloat();
         System.out.print("b=");
-        int b= in.nextInt();
+        float b= in.nextFloat();
         System.out.print("c=");
-        int c= in.nextInt();
+        float c= in.nextFloat();
         List<String> unknowns =equation(a,b,c);
-        System.out.println(unknowns);
+        if (unknowns==null){System.out.println("There are no real roots");}
+        else {System.out.println(unknowns);}
         System.out.println("Task 4");
         System.out.println(sum());
         System.out.println("Task 5");
@@ -50,17 +51,17 @@ public class Main {
         return sequence;
     }
     public static String reverse(String n){
-        String reverse = "";
+        StringBuilder reverse = new StringBuilder();
         for (int i = n.length()-1;i>=0; i--){
-            reverse = reverse + n.charAt(i);
+            reverse.append(n.charAt(i));
         }
-        return reverse;
+        return reverse.toString();
     }
-    public static List<String> equation(int a,int b,int c){
+    public static List<String> equation(float a,float b,float c){
         List<String> unknowns =new ArrayList<>();
         float d=b*b-4*a*c;
         if(d<0){
-            unknowns.add("There are no real roots");
+            return null;
         } else if (d>0) {
             unknowns.add(String.valueOf((-b-Math.sqrt(d))/(2*a)));
             unknowns.add(String.valueOf((-b+Math.sqrt(d))/(2*a)));

@@ -43,16 +43,15 @@ class MainTest {
 
     @Test
     void equation() {
-        String n="There are no real roots";
         List<String> unknowns =Main.equation(1,-5,9);
-        assertEquals(n, unknowns.getFirst());
+        assertNull(unknowns);
         unknowns =Main.equation(1,3,-4);
         List<String> expected =new ArrayList<>();
         expected.add("-4.0");
         expected.add("1.0");
         assertEquals(expected, unknowns);
         unknowns =Main.equation(1,-4,4);
-        assertEquals("2", unknowns.getFirst());
+        assertEquals("2.0", unknowns.getFirst());
     }
 
     @Test
